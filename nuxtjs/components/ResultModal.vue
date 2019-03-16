@@ -3,21 +3,17 @@
     <div class="modal d-block">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-          <div class="modal-header">
-            <p class="modal-title">今のあなたの気分に合った料理は ...</p>
+          <div class="modal-body text-center border-0">
+            <p>今のあなたの気分に合った料理は ...</p>
+            <h2 class="h2">{{food.name}}<span class="small-text ml-2">です！</span></h2>
+            <h5 class="h5 mb-5">
+              <span>こってり度: {{food.kotteri_level}}ｺｯﾃﾘ</span> /
+              <span>がっつり度: {{food.gatturi_level}}ｶﾞｯﾂﾘ</span>
+            </h5>
+            <p>都道府県: {{food.locate}}</p>
+            <p>解説: {{food.description}}</p>
           </div>
-          <div class="modal-body">
-            <div v-for="food in foods">
-              <h2 class="text-center h2">{{food.name}}です！</h2>
-              <h5 class="text-center h5 mb-5">
-                <span>こってり度: {{food.kotteri_level}}ｺｯﾃﾘ</span> /
-                <span>がっつり度: {{food.gatturi_level}}ｶﾞｯﾂﾘ</span>
-              </h5>
-              <p class="text-center">都道府県: {{food.prefecture}}</p>
-              <p class="text-center">解説: {{food.description}}</p>
-            </div>
-          </div>
-          <div class="modal-footer">
+          <div class="modal-footer border-0">
             <button type="button" @click="closeModal" class="btn btn-danger">閉じる</button>
           </div>
         </div>
@@ -29,8 +25,8 @@
 <script>
 export default {
   props: {
-    foods: {
-      type: Array,
+    food: {
+      type: Object,
       default: []
     },
     display: {
@@ -62,5 +58,8 @@ export default {
     to {
       opacity: 1;
     }
+  }
+  .small-text {
+    font-size: 16px;
   }
 </style>

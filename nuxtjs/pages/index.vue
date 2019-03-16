@@ -8,7 +8,7 @@
         <div class="graph" @click="coordinate" />
         <div class="graph-label-right">こってり</div>
       </div>
-      <result-modal v-if="openModal" :foods="food"/>
+      <result-modal v-if="openModal" :food="food"/>
     </div>
   </div>
 </template>
@@ -23,16 +23,7 @@ export default {
   },
   data() {
     return {
-      food:[
-        {
-          "name": "たこやき",
-          "prefecture": "大阪府",
-          "description": "丸い",
-          "img": "",
-          "kotteri_level": 15,
-          "gatturi_level": 3
-        },
-      ],
+      item: {},
       display: false
     }
   },
@@ -40,19 +31,27 @@ export default {
     // モーダルを開く
     openModal() {
       if (this.display) return this.display
+    },
+    food() {
+      if (this.item) return this.item
     }
   },
   methods: {
     // 座標データを渡してレコメンドを受け取る
-    async fetchRecommendData() {
-      const { data } = await axios.get('/api/recommend');
+    async fetchRecommendData(kotteriLevel, gatturiLevel) {
+      const { data } = await axios.get('/api/recommend?kotteriLevel=' + kotteriLevel + '&gatturiLevel=' + gatturiLevel);
+      this.item = data
       console.log(data);
     },
     coordinate(e) {
       let rect = e.target.getBoundingClientRect()
-      this.x = e.clientX - rect.left
-      this.y = e.clientY - rect.top
-      console.log(this.x, this.y, "座標")
+      let x = e.clientX - rect.left
+      let y = e.clientY - rect.top
+      let maxX = rect.width
+      let maxY = rect.height
+      let kotterLevel = Math.round(x / maxX * 100)
+      let gatturiLevel = Math.round(100 - y / maxY * 100)
+      this.fetchRecommendData(kotterLevel, gatturiLevel)
       this.display = true
     }
   }
@@ -69,8 +68,8 @@ export default {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100vmin - 60px);
-    height: calc(100vmin - 60px);
+    width: calc(100vmin - 150px);
+    height: calc(100vmin - 150px);
     cursor: pointer;
     &:before {
       position: absolute;
@@ -104,8 +103,9 @@ export default {
       &-right {
         position: absolute;
         top: 50%;
-        right: 2.5%;
-        transform: translateY(-50%);
+        right: 5%;
+        transform: translateY(-25%);
+        writing-mode: vertical-rl;
       }
     }
   }
