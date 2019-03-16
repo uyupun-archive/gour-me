@@ -58,7 +58,7 @@ html {
 }
 
 .image {
-  background: url('/background.jpg') no-repeat;
+  background: url('~static/background.jpg') no-repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
