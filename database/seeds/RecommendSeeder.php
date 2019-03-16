@@ -15,12 +15,15 @@ class RecommendSeeder extends Seeder
         Recommend::truncate();
 
         for ($i = 1; $i <= 19; $i++) {
+            // ページの指定
             $pages = $i === 1 ? '' : "/pg{$i}/";
 
+            // スクレイピング
             $names = $this->scraping('name', $pages);
             $descriptions = $this->scraping('description', $pages);
             $locates = $this->scraping('locate', $pages);
 
+            // DBに挿入
             for ($j = 0; $j < count($names); $j++) {
                 if ($this->checkData($names[$j], $descriptions[$j], $locates[$j])) continue;
 
@@ -46,6 +49,7 @@ class RecommendSeeder extends Seeder
      */
     protected function scraping($type, $pages)
     {
+        // タイプによって取ってくるclassを変える
         if ($type === 'name')               $class = 'list-group-main__ttl-txt';
         else if ($type === 'description')   $class = 'list-group-main__support-txt';
         else                                $class = 'list-group-main__area';
