@@ -14,7 +14,7 @@ class RecommendSeeder extends Seeder
     {
         Recommend::truncate();
 
-        for ($i = 1; $i <= 19; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             // ページの指定
             $pages = $i === 1 ? '' : "/pg{$i}/";
 
