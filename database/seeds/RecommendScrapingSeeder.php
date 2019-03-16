@@ -3,7 +3,12 @@
 use Illuminate\Database\Seeder;
 use App\Models\Recommend;
 
-class RecommendSeeder extends Seeder
+/**
+ * こってり度/がっつり度以外のデータを流し込むSeeder
+ *
+ * Class RecommendScrapingSeeder
+ */
+class RecommendScrapingSeeder extends Seeder
 {
     /**
      * Run the database seeds.
