@@ -58,7 +58,7 @@ export default {
   },
 
   proxy: {
-    '/api': process.env.FRONT_APP_ENV === 'dev' ? 'http://localhost:8000' : '',
+    '/api': 'http://localhost:8000'
   },
 
   env: {
