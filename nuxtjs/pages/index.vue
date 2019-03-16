@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      kuimon:[
+      food:[
         {
           "name": "たこやき",
           "prefecture": "大阪府",
