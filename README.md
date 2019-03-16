@@ -22,5 +22,5 @@ $ php artisan migrate:fresh --seed
 
 ### Links
 
-Frontend: https://trusting-wescoff-c50237.netlify.com/
+Frontend: https://trusting-wescoff-c50237.netlify.com/  
 API: https://gour-me.herokuapp.com/
