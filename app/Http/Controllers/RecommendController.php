@@ -28,16 +28,30 @@ class RecommendController extends Controller
         if ($validator->fails()) return response([], 400);
 
         $recommends = Recommend::all();
+        $response = $this->getRecommendResponse($request, $recommends);
+
+        return response($response, 200);
+    }
+
+    /**
+     * リクエストのこってり度とがっつり度とDBのこってり度とがっつり度の差が最小のものを求める(近似値)
+     *
+     * @param $request
+     * @param $recommends
+     * @return \stdClass
+     */
+    protected function getRecommendResponse($request, $recommends)
+    {
         $response = new \stdClass();
 
-        // リクエストのこってり度とがっつり度とDBのこってり度とがっつり度の差が最小のものを求める(近似値)
         $minDiffKotteriLevel = 100;
         $minDiffGatturiLevel = 100;
         foreach ($recommends as $recommend) {
+            // 絶対値を求める
             $absKotteriLevel = abs($request->kotteriLevel - $recommend->kotteri_level);
             $absGatturiLevel = abs($request->gatturiLevel - $recommend->gatturi_level);
 
-            // こってり度/がっつり度の両方を書き換えるケース
+            // レスポンスの書き換え
             if ($minDiffKotteriLevel > $absKotteriLevel &&
                 $minDiffGatturiLevel > $absGatturiLevel) {
                 $minDiffKotteriLevel = $absKotteriLevel;
@@ -47,6 +61,6 @@ class RecommendController extends Controller
             }
         }
 
-        return response($response, 200);
+        return $response;
     }
 }
