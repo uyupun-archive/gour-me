@@ -1,7 +1,7 @@
 {
-  "name": "nuxtjs",
+  "name": "gour.me",
   "version": "1.0.0",
-  "description": "My best Nuxt.js project",
+  "description": "gour.me frontend project",
   "author": "Kazuki Tobita",
   "private": true,
   "scripts": {
