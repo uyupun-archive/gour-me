@@ -8,6 +8,7 @@
         <div class="graph-label-left">あっさり</div>
         <div class="graph" @click="coordinate" />
         <div class="graph-label-bottom">おてがる</div>
+        <div class="graph" @click="getCoordinate" />
         <div class="graph-label-right">こってり</div>
       </div>
       <result-modal v-if="openModal" :food="food"/>
@@ -21,31 +22,36 @@ import ResultModal from '~/components/ResultModal'
 
 export default {
   components: {
-    ResultModal
+    ResultModal,
   },
   data() {
     return {
-      item: {},
-      display: false
+      recommend: {},
+      display: false,
     }
   },
   computed: {
     // モーダルを開く
     openModal() {
-      if (this.display) return this.display
+      if (this.display) return this.display;
     },
     food() {
-      if (this.item) return this.item
+      if (this.recommend) return this.recommend;
     }
   },
   methods: {
     // 座標データを渡してレコメンドを受け取る
     async fetchRecommendData(kotteriLevel, gatturiLevel) {
-      const { data } = await axios.get('/api/recommend?kotteriLevel=' + kotteriLevel + '&gatturiLevel=' + gatturiLevel);
-      this.item = data
-      console.log(data);
+      const { data } = await axios.get('/api/recommend', {
+        params: {
+          kotteriLevel: kotteriLevel,
+          gatturiLevel: gatturiLevel,
+        }
+      });
+      this.recommend = data;
     },
-    coordinate(e) {
+    // 座標の取得
+    getCoordinate(e) {
       let rect = e.target.getBoundingClientRect()
       let x = e.clientX - rect.left
       let y = e.clientY - rect.top
