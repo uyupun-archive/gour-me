@@ -58,7 +58,7 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.FRONT_APP_ENV === 'dev' ? 'http://localhost:8000' : ''
+    baseURL: process.env.FRONT_APP_ENV === 'dev' ? 'http://localhost:8000' : 'https://gour-me.herokuapp.com'
   },
 
 }
