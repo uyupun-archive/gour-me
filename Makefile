@@ -7,6 +7,5 @@ install:
 	npm install
 
 build:
-	rm -rf docs
+	rm -rf dist
 	npm run generate
-	mv dist docs
