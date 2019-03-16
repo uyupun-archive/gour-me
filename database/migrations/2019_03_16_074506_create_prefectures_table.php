@@ -4,7 +4,12 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePasswordResetsTable extends Migration
+/**
+ * 都道府県テーブル
+ *
+ * Class CreatePrefecturesTable
+ */
+class CreatePrefecturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +18,10 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+        Schema::create('prefectures', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name')->comment('都道府県名');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +32,6 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('prefectures');
     }
 }
