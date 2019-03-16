@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//         $this->call(RecommendScrapingSeeder::class);
+         $this->call(RecommendScrapingSeeder::class);
          $this->call(RecommendKotteriGatturiLevelSeeder::class);
     }
 }
