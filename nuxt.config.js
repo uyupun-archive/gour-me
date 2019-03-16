@@ -61,10 +61,6 @@ export default {
     '/api': process.env.FRONT_APP_ENV === 'dev' ? 'http://localhost:8000' : '',
   },
 
-  router: {
-    base: process.env.FRONT_APP_ENV === 'dev' ? '/' : '/gour-me/',
-  },
-
   env: {
     FRONT_APP_ENV: process.env.FRONT_APP_ENV,
   },
