@@ -6,9 +6,8 @@
       <div class="graph-area">
         <div class="graph-label-top">がっつり</div>
         <div class="graph-label-left">あっさり</div>
-        <div class="graph" @click="coordinate" />
-        <div class="graph-label-bottom">おてがる</div>
         <div class="graph" @click="getCoordinate" />
+        <div class="graph-label-bottom">おてがる</div>
         <div class="graph-label-right">こってり</div>
       </div>
       <result-modal v-if="openModal" :recommend="getRecommend"/>
