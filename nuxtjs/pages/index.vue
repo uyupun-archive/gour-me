@@ -2,23 +2,24 @@
   <div>
     <div class="container">
       <h1 class="text-center">gour.me</h1>
+      <p class="text-center">あなたに合ったグルメをレコメンドします.</p>
       <div class="graph-area">
         <div class="graph-label-top">がっつり</div>
         <div class="graph" @click="coordinate" />
         <div class="graph-label-right">こってり</div>
       </div>
-      <kuimon-card v-if="modalOpen" :foods="food"/>
+      <result-modal v-if="openModal" :foods="food"/>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-import KuimonCard from '~/components/KuimonCard'
+import ResultModal from '~/components/ResultModal'
 
 export default {
   components: {
-    KuimonCard
+    ResultModal
   },
   data() {
     return {
@@ -36,10 +37,9 @@ export default {
     }
   },
   computed: {
-    modalOpen() {
-      if (this.display) {
-        return this.display
-      }
+    // モーダルを開く
+    openModal() {
+      if (this.display) return this.display
     }
   },
   methods: {
@@ -79,8 +79,8 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
       width: 95%;
-      height: 1px;
-      background: #666;
+      height: 2px;
+      background: #777;
     }
     &:after {
       position: absolute;
@@ -88,13 +88,14 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 1px;
+      width: 2px;
       height: 95%;
-      background: #666;
+      background: #777;
     }
     &-area {
       position: relative;
       border: #ccc solid 3px;
+      border-radius: 5px;
     }
     &-label {
       &-top {

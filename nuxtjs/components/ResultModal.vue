@@ -4,16 +4,17 @@
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">結果</h4>
-            <button type="button" @click="closeModal" class="close"><span>&times;</span></button>
+            <p class="modal-title">今のあなたの気分に合った料理は ...</p>
           </div>
           <div class="modal-body">
             <div v-for="food in foods">
-              <h2>名前:<span>{{food.name}}</span></h2>
-              <h2>都道府県:<span>{{food.prefecture}}</span></h2>
-              <h2>特徴:<span>{{food.description}}</span></h2>
-              <h2>こってり度:<span>{{food.kotteri_level}}</span></h2>
-              <h2>がっつり度:<span>{{food.gatturi_level}}</span></h2>
+              <h2 class="text-center h2">{{food.name}}です！</h2>
+              <h5 class="text-center h5 mb-5">
+                <span>こってり度: {{food.kotteri_level}}ｺｯﾃﾘ</span> /
+                <span>がっつり度: {{food.gatturi_level}}ｶﾞｯﾂﾘ</span>
+              </h5>
+              <p class="text-center">都道府県: {{food.prefecture}}</p>
+              <p class="text-center">解説: {{food.description}}</p>
             </div>
           </div>
           <div class="modal-footer">
@@ -38,6 +39,7 @@ export default {
     }
   },
   methods: {
+    // モーダルを閉じる
     closeModal() {
       this.$parent.display = false
     }
