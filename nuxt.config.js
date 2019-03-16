@@ -1,4 +1,5 @@
 import pkg from './package'
+require('dotenv').config()
 
 export default {
   mode: 'universal',
@@ -41,6 +42,7 @@ export default {
   */
   modules: [
     '@nuxtjs/proxy',
+    '@nuxtjs/dotenv',
     'bootstrap-vue/nuxt',
   ],
 
@@ -56,11 +58,15 @@ export default {
   },
 
   proxy: {
-    '/api': 'http://localhost:8000',
+    '/api': process.env.FRONT_APP_ENV === 'dev' ? 'localhost:8000' : '',
   },
 
   router: {
-    base: '/gour-me/'
+    base: process.env.FRONT_APP_ENV === 'dev' ? '/' : '/gour-me/',
+  },
+
+  env: {
+    FRONT_APP_ENV: process.env.FRONT_APP_ENV,
   },
 
 }
