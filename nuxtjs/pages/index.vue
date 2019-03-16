@@ -2,22 +2,20 @@
   <div>
     <div class="container">
       <h1 class="text-center">gour.me</h1>
-      <div class="chart" style="box-shadow: none;">
-        <scatter/>
-        <kuimon-card v-bind:kuimon="kuimon[0]"/>
-      </div>
+      <graph/>
+      <kuimon-card v-bind:kuimon="kuimon[0]"/>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-import Scatter from '../plugins/Scatter';
-import KuimonCard from '@/components/KuimonCard'
+import Graph from '~/components/Graph'
+import KuimonCard from '~/components/KuimonCard'
 
 export default {
   components: {
-    Scatter,
+    Graph,
     KuimonCard
   },
   data() {
@@ -51,11 +49,6 @@ export default {
   .container {
     max-width: 800px;
     margin: 0 auto;
-  }
-  .chart {
-    padding: 20px;
-    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, .4);
-    border-radius: 20px;
-    margin: 50px 0;
+    padding: 0 30px;
   }
 </style>

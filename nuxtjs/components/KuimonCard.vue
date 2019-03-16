@@ -11,12 +11,13 @@
 <script>
 export default {
   mounted() {
-      console.log(this.kuimon)
+    console.log(this.kuimon)
   },
-  props:{
-      kuimon: Array
-  },
-  methods: {
+  props: {
+    kuimon: {
+      type: Object,
+      default: () => ({})
+    }
   }
 }
 </script>
