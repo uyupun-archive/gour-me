@@ -4,6 +4,7 @@
       <h1 class="text-center">gour.me</h1>
       <div class="chart" style="box-shadow: none;">
         <scatter/>
+        <kuimon-card v-bind:kuimon="kuimon[0]"/>
       </div>
     </div>
   </div>
@@ -12,10 +13,26 @@
 <script>
 import axios from 'axios';
 import Scatter from '../plugins/Scatter';
+import KuimonCard from '@/components/KuimonCard'
 
 export default {
   components: {
-    Scatter
+    Scatter,
+    KuimonCard
+  },
+  data() {
+    return {
+      kuimon:[
+        {
+          "name": "たこやき",
+          "prefecture": "大阪府",
+          "description": "丸い",
+          "img": "",
+          "kotteri_level": 15,
+          "gatturi_level": 3
+        }
+      ]
+    }
   },
   mounted() {
     this.fetchRecommendData();
