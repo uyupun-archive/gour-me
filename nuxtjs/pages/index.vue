@@ -5,6 +5,9 @@
       <p class="text-center">あなたに合ったグルメをレコメンドします.</p>
       <div class="graph-area">
         <div class="graph-label-top">がっつり</div>
+        <div class="graph-label-left">あっさり</div>
+        <div class="graph" @click="coordinate" />
+        <div class="graph-label-bottom">おてがる</div>
         <div class="graph" @click="getCoordinate" />
         <div class="graph-label-right">こってり</div>
       </div>
@@ -73,8 +76,8 @@ export default {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100vmin - 150px);
-    height: calc(100vmin - 150px);
+    width: calc(100vmin - 180px);
+    height: calc(100vmin - 180px);
     cursor: pointer;
     &:before {
       position: absolute;
@@ -105,11 +108,21 @@ export default {
       &-top {
         text-align: center;
       }
+      &-left {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+        writing-mode: vertical-rl;
+      }
+      &-bottom {
+        text-align: center;
+      }
       &-right {
         position: absolute;
         top: 50%;
         right: 5%;
-        transform: translateY(-25%);
+        transform: translateY(-50%);
         writing-mode: vertical-rl;
       }
     }
