@@ -21,16 +21,17 @@ class RecommendKotteriGatturiLevelSeeder extends Seeder
         $saltyJson = $this->fetchJson('salty');
         $kazukichiJson = $this->fetchJson('kazukichi');
 
+        // DBに挿入
         for ($j = 0; $j < count($saltyJson); $j++) {
             $kotteriLevelAvg = round($saltyJson[$j]->kotteriLevel + $kazukichiJson[$j]->kotteriLevel / 2, 0);
             $gatturiLevelAvg = round($saltyJson[$j]->gatturiLevel + $kazukichiJson[$j]->gatturiLevel / 2, 0);
-
-            echo $kotteriLevelAvg . "\n";
 
             Recommend::where('id', $j + 1)->update([
                 'kotteri_level' => $kotteriLevelAvg,
                 'gatturi_level' => $gatturiLevelAvg,
             ]);
+
+            echo "Created: {$kotteriLevelAvg}, {$gatturiLevelAvg}\n";
         }
     }
 
