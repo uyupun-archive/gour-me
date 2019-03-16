@@ -23,7 +23,7 @@ class CreateRecommendsTable extends Migration
             $table->string('name')->comment('食べ物の名前');
             $table->text('description')->comment('食べ物の説明');
 //            $table->text('img')->comment('画像のパス');
-            $table->unsignedInteger('prefecture')->comment('都道府県');
+            $table->string('locate')->comment('地域');
             $table->unsignedInteger('kotteri_level')->comment('こってり度');
             $table->unsignedInteger('gatturi_level')->comment('がっつり度');
             $table->timestamps();
