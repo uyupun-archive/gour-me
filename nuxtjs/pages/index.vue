@@ -3,7 +3,7 @@
     <div class="container">
       <h1 class="text-center">gour.me</h1>
       <div class="graph" @click="coordinate" />
-      <kuimon-card v-if="modalOpen" :foods="kuimon"/>
+      <kuimon-card v-if="modalOpen" :foods="food"/>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      kuimon:[
+      food:[
         {
           "name": "たこやき",
           "prefecture": "大阪府",
@@ -69,5 +69,7 @@ export default {
     width: calc(100vmin - 60px);
     height: calc(100vmin - 60px);
     background: #000;
+    cursor: pointer;
   }
+
 </style>
