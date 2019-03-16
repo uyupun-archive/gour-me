@@ -70,6 +70,16 @@ export default {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 30px;
+    opacity: 0;
+    animation: .5s linear forwards opa;
+  }
+  @keyframes opa {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
   .graph {
     position: relative;
