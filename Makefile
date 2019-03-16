@@ -5,3 +5,8 @@ install:
 	touch database/database.sqlite
 	php artisan migrate --seed
 	npm install
+
+deploy:
+	rm -rf docs
+	npm run generate
+	mv dist docs

@@ -19,3 +19,9 @@ $ npm run dev
 ```bash
 $ php artisan migrate:fresh --seed
 ```
+
+### Deploying GitHub Pages
+
+```bash
+$ make deploy
+```
