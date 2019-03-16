@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="modal d-block">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">結果</h4>
@@ -48,5 +48,17 @@ export default {
 <style lang="scss" scoped>
   .modal {
     background: rgba(0,0,0,0.5);
+    &-content {
+      opacity: 0;
+      animation: .5s 1 linear forwards speed;
+    }
+  }
+  @keyframes speed {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 </style>
