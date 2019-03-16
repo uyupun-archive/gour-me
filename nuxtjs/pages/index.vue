@@ -3,7 +3,7 @@
     <div class="container">
       <h1 class="text-center">gour.me</h1>
       <graph/>
-      <kuimon-card v-bind:kuimon="kuimon[0]"/>
+      <kuimon-card :kuimon="kuimon"/>
     </div>
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
           "img": "",
           "kotteri_level": 15,
           "gatturi_level": 3
-        }
+        },
       ]
     }
   },
