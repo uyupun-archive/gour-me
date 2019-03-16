@@ -2,7 +2,11 @@
   <div>
     <div class="container">
       <h1 class="text-center">gour.me</h1>
-      <div class="graph" @click="coordinate" />
+      <div class="graph-area">
+        <div class="graph-label-top">がっつり</div>
+        <div class="graph" @click="coordinate" />
+        <div class="graph-label-right">こってり</div>
+      </div>
       <kuimon-card v-if="modalOpen" :foods="food"/>
     </div>
   </div>
@@ -62,14 +66,46 @@ export default {
     padding: 0 30px;
   }
   .graph {
-    margin: 0;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100vmin - 60px);
     height: calc(100vmin - 60px);
-    background: #000;
     cursor: pointer;
+    &:before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 95%;
+      height: 1px;
+      background: #666;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1px;
+      height: 95%;
+      background: #666;
+    }
+    &-area {
+      position: relative;
+      border: #ccc solid 3px;
+    }
+    &-label {
+      &-top {
+        text-align: center;
+      }
+      &-right {
+        position: absolute;
+        top: 50%;
+        right: 2.5%;
+        transform: translateY(-50%);
+      }
+    }
   }
-
 </style>
