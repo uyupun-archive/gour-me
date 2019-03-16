@@ -69,5 +69,7 @@ export default {
     width: calc(100vmin - 60px);
     height: calc(100vmin - 60px);
     background: #000;
+    cursor: pointer;
   }
+
 </style>
