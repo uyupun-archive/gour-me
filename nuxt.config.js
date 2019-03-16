@@ -41,6 +41,7 @@ export default {
   */
   modules: [
     '@nuxtjs/proxy',
+    'bootstrap-vue/nuxt',
   ],
 
   /*
