@@ -5,13 +5,13 @@
         <div class="modal-content">
           <div class="modal-body text-center border-0">
             <p>今のあなたの気分に合った料理は ...</p>
-            <h2 class="h2">{{food.name}}<span class="small-text ml-2">です！</span></h2>
+            <h2 class="h2">{{recommend.name}}<span class="small-text ml-2">です！</span></h2>
             <h5 class="h5 mb-5">
-              <span>こってり度: {{food.kotteri_level}}ｺｯﾃﾘ</span> /
-              <span>がっつり度: {{food.gatturi_level}}ｶﾞｯﾂﾘ</span>
+              <span>こってり度: {{recommend.kotteri_level}}ｺｯﾃﾘ</span> /
+              <span>がっつり度: {{recommend.gatturi_level}}ｶﾞｯﾂﾘ</span>
             </h5>
-            <p>都道府県: {{food.locate}}</p>
-            <p>解説: {{food.description}}</p>
+            <p>都道府県: {{recommend.locate}}</p>
+            <p>解説: {{recommend.description}}</p>
           </div>
           <div class="modal-footer border-0">
             <button type="button" @click="closeModal" class="btn btn-danger">閉じる</button>
@@ -25,7 +25,7 @@
 <script>
 export default {
   props: {
-    food: {
+    recommend: {
       type: Object,
       default: []
     },

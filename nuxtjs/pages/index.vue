@@ -8,7 +8,7 @@
         <div class="graph" @click="getCoordinate" />
         <div class="graph-label-right">こってり</div>
       </div>
-      <result-modal v-if="openModal" :food="food"/>
+      <result-modal v-if="openModal" :recommend="getRecommend"/>
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
     openModal() {
       if (this.display) return this.display;
     },
-    food() {
+    getRecommend() {
       if (this.recommend) return this.recommend;
     }
   },
