@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import ResultModal from '~/components/ResultModal'
 
 export default {
@@ -41,7 +40,7 @@ export default {
   methods: {
     // 座標データを渡してレコメンドを受け取る
     async fetchRecommendData(kotteriLevel, gatturiLevel) {
-      const { data } = await axios.get('/api/recommend', {
+      const { data } = await this.$axios.get('/api/recommend', {
         params: {
           kotteriLevel: kotteriLevel,
           gatturiLevel: gatturiLevel,

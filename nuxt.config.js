@@ -41,7 +41,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/proxy',
+    '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     'bootstrap-vue/nuxt',
   ],
@@ -57,12 +57,8 @@ export default {
     }
   },
 
-  proxy: {
-    '/api': 'http://localhost:8000'
-  },
-
-  env: {
-    FRONT_APP_ENV: process.env.FRONT_APP_ENV,
+  axios: {
+    baseURL: process.env.FRONT_APP_ENV === 'dev' ? 'http://localhost:8000' : ''
   },
 
 }
