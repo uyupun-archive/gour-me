@@ -20,10 +20,10 @@ $ npm run dev
 $ php artisan migrate:fresh --seed
 ```
 
-### Deploying GitHub Pages
+### Building frontend
 
 ```bash
-$ make deploy
+$ make build
 ```
 
 ### Links

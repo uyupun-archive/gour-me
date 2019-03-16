@@ -6,7 +6,7 @@ install:
 	php artisan migrate --seed
 	npm install
 
-deploy:
+build:
 	rm -rf docs
 	npm run generate
 	mv dist docs
