@@ -58,4 +58,9 @@ export default {
   proxy: {
     '/api': 'http://localhost:8000',
   },
+
+  router: {
+    base: '/gour-me/'
+  },
+
 }
