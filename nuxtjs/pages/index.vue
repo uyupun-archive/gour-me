@@ -100,8 +100,8 @@ export default {
     }
     &-area {
       position: relative;
-      border: #ccc solid 3px;
       border-radius: 5px;
+      background: white;
     }
     &-label {
       &-top {

@@ -48,7 +48,7 @@ export default {
     background: rgba(0,0,0,0.5);
     &-content {
       opacity: 0;
-      animation: .5s 1 linear forwards speed;
+      animation: .4s .15s 1 linear forwards speed;
     }
   }
   @keyframes speed {

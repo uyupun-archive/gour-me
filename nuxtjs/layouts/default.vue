@@ -1,10 +1,14 @@
 <template>
   <div>
-    <nuxt />
+    <div class="image">
+      <div class="image-mask">
+        <nuxt />
+      </div>
+    </div>
   </div>
 </template>
 
-<style>
+<style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -51,5 +55,22 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.image {
+  background: url("../assets/images/gourme.jpg") no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  &-mask {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:rgba(255,255,255,0.5);
+  }
 }
 </style>
