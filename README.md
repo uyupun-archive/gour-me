@@ -20,12 +20,6 @@ $ npm run dev
 $ php artisan migrate:fresh --seed
 ```
 
-### Building frontend
-
-```bash
-$ make build
-```
-
 ### Links
 
-Frontend: https://tyokinuhata.github.io/gour-me/
+Frontend: https://trusting-wescoff-c50237.netlify.com/
