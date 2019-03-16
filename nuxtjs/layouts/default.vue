@@ -58,7 +58,7 @@ html {
 }
 
 .image {
-  background: url("../assets/images/gourme.jpg") no-repeat;
+  background: url('/background.jpg') no-repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
