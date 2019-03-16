@@ -3,7 +3,7 @@
     <div class="container">
       <h1 class="text-center">gour.me</h1>
       <div class="graph" @click="coordinate" />
-      <kuimon-card v-if="modalOpen" :foods="kuimon"/>
+      <kuimon-card v-if="modalOpen" :foods="food"/>
     </div>
   </div>
 </template>
