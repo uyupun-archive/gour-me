@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <h1 class="text-center">gour.me</h1>
-      <p class="text-center">あなたに合ったグルメをレコメンドします.</p>
+      <p class="text-center">&#x1f363;あなたに合ったグルメをレコメンドします&#x1f969;</p>
       <div class="graph-area">
         <div class="graph-label-top">がっつり</div>
         <div class="graph-label-left">あっさり</div>
