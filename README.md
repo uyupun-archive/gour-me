@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4a37e958-b5ac-475d-b295-8c22a2ac7000/deploy-status)](https://app.netlify.com/sites/trusting-wescoff-c50237/deploys)
+
 # gour.me
 あなたに合ったグルメをレコメンドします.
 
