@@ -63,9 +63,6 @@ export default {
       longitude: null,
     }
   },
-  async mounted() {
-    this.getNowPosition();
-  },
   methods: {
     // モーダルを閉じる
     closeModal() {
@@ -73,29 +70,14 @@ export default {
       this.shopMessage = '';
       this.$parent.display = false;
     },
-    // 現在の位置情報を取得する
-    getNowPosition() {
-      const getPosition = options => {
-        return new Promise((resolve, reject) => {
-          navigator.geolocation.getCurrentPosition(resolve, reject, options);
-        });
-      };
-      getPosition().then(position => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-      })
-        .catch((err) => {});
-    },
-    // ぐるなびAPIからキーワードに合った半径3kmの店舗情報をとってくる
+    // ぐるなびAPIからキーワードに合った店舗情報をとってくる
     async searchShopInfo() {
       try {
         const { data } = await this.$axios.get('https://api.gnavi.co.jp/RestSearchAPI/v3/', {
           params: {
             keyid: process.env.FRONT_GURUNABI_API_KEY,
-            latitude: this.latitude,
-            longitude: this.longitude,
-            range: 5,
             freeword: this.recommend.name,
+            area: "AREA120"
           }
         });
         this.shops = data.rest;
