@@ -61,4 +61,8 @@ export default {
     baseURL: process.env.FRONT_APP_ENV === 'dev' ? 'http://localhost:8000' : 'https://gour-me.herokuapp.com'
   },
 
+  env: {
+    FRONT_GURUNABI_API_KEY: process.env.FRONT_GURUNABI_API_KEY,
+  },
+
 }
