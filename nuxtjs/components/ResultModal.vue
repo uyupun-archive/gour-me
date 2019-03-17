@@ -83,7 +83,7 @@ export default {
         this.shops = data.rest;
         this.isShowShopInfo = true;
       } catch (e) {
-        this.shopMessage = '近くに店舗はありませんでした。';
+        this.shopMessage = 'オススメできる店舗を見つけられませんでした.';
         this.isShowShopInfo = false;
       }
     },
