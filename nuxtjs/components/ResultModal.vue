@@ -26,7 +26,9 @@
             <h2 class="h2 text-center mb-4">{{ recommend.name }}<span class="small-text ml-2">のお店</span></h2>
             <div v-for="shop in shops" class="mb-3">
               <div v-if="shop.name">店名: {{ shop.name }}</div>
-              <div v-if="shop.address">住所: {{ shop.address }}</div>
+              <div v-if="shop.address">
+                住所: <a :href="getGoogleMapLinks(shop.address)" target="_blank">{{ shop.address }}</a>
+              </div>
               <div v-if="shop.tel">電話番号:{{ shop.tel }}</div>
             </div>
           </div>
@@ -102,6 +104,12 @@ export default {
         this.shopMessage = '近くに店舗はありませんでした。';
         this.isShowShopInfo = false;
       }
+    },
+    // GoogleMapのリンクを取得する
+    getGoogleMapLinks(address) {
+      const baseUrl = 'http://maps.google.co.jp/maps';
+      const fmtAddress = address.substr(10);
+      return `${baseUrl}?q=` + encodeURI(fmtAddress);
     }
   }
 }
