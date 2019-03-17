@@ -77,7 +77,7 @@ export default {
           params: {
             keyid: process.env.FRONT_GURUNABI_API_KEY,
             freeword: this.recommend.name,
-            area: "AREA120"
+            area: 'AREA120' // 関西のエリアID
           }
         });
         this.shops = data.rest;
